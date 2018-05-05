@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context="com.example.maciej.notifications.MainActivity"
+android:background="@drawable/radosna1">
+
+	<ImageButton
+
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:id="@+id/button" android:layout_marginTop="8dp"
+			android:onClick="buttonClicked"
+			android:background="@drawable/round_corner"
+
+			app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"
+			app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+			android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.502" app:layout_constraintVertical_bias="0.794"
+			app:srcCompat="@drawable/rsz_1sad"
+	/>
+
+	<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+			android:padding="45dp">
+		<Button
+				android:text="Radosna"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content" tools:layout_editor_absoluteY="121dp" tools:layout_editor_absoluteX="54dp" android:id="@+id/radosnaBtn"
+				android:onClick="click"
+				android:background="@drawable/rounded_button"/>
+
+		<Button
+				android:text="Chwalebna"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content" tools:layout_editor_absoluteY="64dp" tools:layout_editor_absoluteX="68dp" android:id="@+id/chwalebnaBtn"
+				android:onClick="click"
+				android:background="@drawable/rounded_button"/>
+		<Button
+				android:text="Bolesna"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content" tools:layout_editor_absoluteY="136dp" tools:layout_editor_absoluteX="16dp" android:id="@+id/bolesnaBtn"
+				android:onClick="click"
+				android:background="@drawable/rounded_button"/>
+		<Button
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content" tools:layout_editor_absoluteY="4dp" tools:layout_editor_absoluteX="8dp" android:id="@+id/swiatlaBtn"
+				android:text="światła"
+				android:onClick="click"
+				android:background="@drawable/rounded_button"/>
+	</LinearLayout>
+</android.support.constraint.ConstraintLayout>
