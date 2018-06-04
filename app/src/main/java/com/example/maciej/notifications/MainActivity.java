@@ -7,16 +7,16 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,26 +49,18 @@ SharedPreferences.Editor editor;
 		}
 
 
-		calendar.set( Calendar.HOUR_OF_DAY,3 );
-		calendar.set( Calendar.MINUTE,0 );
-		calendar.set( Calendar.SECOND,3 );
+		calendar.set( Calendar.HOUR_OF_DAY,0 );
+		calendar.set( Calendar.MINUTE,1 );
+		calendar.set( Calendar.SECOND,1 );
 
-		//if(onoff==true) {
+
 	Intent intent = new Intent( getApplicationContext(), NotificationReceiver.class );
 	intent.putExtra( "url", linkForADay() );
 	PendingIntent pendingIntent = PendingIntent.getBroadcast( getApplicationContext(), 100, intent, PendingIntent.FLAG_UPDATE_CURRENT );
 	AlarmManager alarmManager = (AlarmManager) getSystemService( ALARM_SERVICE );
-	alarmManager.setRepeating( AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_FIFTEEN_MINUTES, pendingIntent );
+	alarmManager.setRepeating( AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent );
 
-	SimpleDateFormat simpleDateFormat = new SimpleDateFormat( "E", Locale.ENGLISH );
-	String strDay = simpleDateFormat.format( calendar.getTime() );
-	Log.e( "Date", strDay );
-
-	if(onoff==false){
-		alarmManager.cancel( pendingIntent );
-		Log.e( "Alarm","turned down" );
-	}
-
+		sendBroadcast( intent );
 
 	}
 
@@ -110,7 +102,7 @@ SharedPreferences.Editor editor;
 
 			}
 		} ).setPositiveButton( "Save", new DialogInterface.OnClickListener() {
-			@Override public void onClick( final DialogInterface dialogInterface, final int a ) {
+			@RequiresApi(api = Build.VERSION_CODES.GINGERBREAD) @Override public void onClick( final DialogInterface dialogInterface, final int a ) {
 				if(view.getId()==R.id.radosnaBtn){
 					linksArray[0]=link.getText().toString();
 				}else if(view.getId()==R.id.bolesnaBtn){

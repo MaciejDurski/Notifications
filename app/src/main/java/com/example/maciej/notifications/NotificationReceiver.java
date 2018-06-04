@@ -49,7 +49,8 @@ String[] swiatla=new String[]{"I-Chrzest Pana Jezusa w Jordanie", "II-Wesele w K
 		NotificationCompat.Builder notification= new NotificationCompat.Builder( context);
 		notification.setAutoCancel( false )
 		.setContentIntent( pendingIntent )
-		.setContentText( webPageAdress );
+		.setContentText( webPageAdress )
+		.setOngoing( true );
 		int day = calendar.get( Calendar.DAY_OF_WEEK );
 		if(day==Calendar.MONDAY||day==Calendar.SATURDAY){
 			notification.setContentTitle( "Tajemnice radosne" )
@@ -94,11 +95,11 @@ String[] swiatla=new String[]{"I-Chrzest Pana Jezusa w Jordanie", "II-Wesele w K
 		if ( android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O ) {
 			NotificationChannel notificationChannel = new NotificationChannel( "notify_001", "channel title", NotificationManager.IMPORTANCE_DEFAULT );
 			notificationManager.createNotificationChannel( notificationChannel );
-			notification.setChannelId( "notify_001" );
+
 
 		}
 
-
+		notification.setChannelId( "notify_001" );
 		notificationManager.notify(uniqueID, notification.build());
 
 
