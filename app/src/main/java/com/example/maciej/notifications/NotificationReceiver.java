@@ -17,13 +17,7 @@ import java.util.Locale;
 public class NotificationReceiver extends BroadcastReceiver{
 	private static final int uniqueID =24324234;
 	String webPageAdress;
-/*
-String[] bolesne=new String[]{"I - Modlitwa w Ogrójcu", "II - Biczowanie","III - Cierniem ukoronowanie","IV - Droga Krzyżowa","V - Śmierć na Krzyżu"};
-String[] chwalebne=new String[]{"I - Zmartwychwstanie Pana Jezusa","II - Wniebowstąpienie","III - Zesłanie Ducha Świętego","IV - Wniebowzięcie Maryi","V - Ukoronowanie Matki Bożej na Królową nieba i ziemi"};
-String[] radosne=new String[]{"I - Zwiastowanie NMP", "II - Nawiedzenie św. Elżbiety","III - Narodzenie Jezusa","IV - Ofiarowanie w świątyni","V - Znalezienie w świątyni"};
-String[] swiatla=new String[]{"I-Chrzest Pana Jezusa w Jordanie", "II-Wesele w Kanie Galilejskiej" ,"III-Głoszenie Królestwa Bożego","IV-Przemienienie na górze Tabor" ,"V-Ustanowienie Eucharystii"};
 
-*/
 
 
 	@Override public void onReceive( final Context context, final Intent intent ) {
@@ -106,10 +100,5 @@ String[] swiatla=new String[]{"I-Chrzest Pana Jezusa w Jordanie", "II-Wesele w K
 
 
 	}
-	/*private void addLine( String[] array, NotificationCompat.Builder notification){
 
-		for ( int i=0;i<array.length;i++ ){
-			notification.setStyle( new NotificationCompat.InboxStyle(  ).addLine( array[i].toString() ) );
-		}
-	}*/
 }
